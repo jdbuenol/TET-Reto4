@@ -1,0 +1,16 @@
+version: '2'
+services:
+  moodle:
+    image: docker.io/bitnami/moodle:4.1
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      - MOODLE_DATABASE_HOST=reto4-db.cuzlo38g8tv9.us-east-1.rds.amazonaws.com
+      - MOODLE_DATABASE_PORT_NUMBER=3306
+      - MOODLE_DATABASE_USER=admin
+      - MOODLE_DATABASE_PASSWORD=password
+      - MOODLE_DATABASE_NAME=dbMoodle
+    volumes:
+      - '/moodle_data/moodle_data:/bitnami/moodle'
+      - '/moodle_data/moodle_datadata:/bitnami/moodledata'
